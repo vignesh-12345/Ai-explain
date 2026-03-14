@@ -10,20 +10,14 @@ export async function explainTopic(topic: string): Promise<string> {
   const genAI = new GoogleGenerativeAI(apiKey);
 
   const model = genAI.getGenerativeModel({
-    model: "gemini-2.5-flash"
+    model: "gemini-1.5-flash"
   });
 
-  const prompt = `You are a friendly and knowledgeable tutor. A student has asked you to explain the following topic in simple, clear terms.
+  const prompt = `Explain the following topic in simple, clear terms for a student aged 13-20.
 
-Topic: "${topic}"
+Topic: ${topic}
 
-Please provide:
-1. A clear and concise explanation suitable for a student (ages 13–20).
-2. Use simple language, avoiding unnecessary jargon. If you must use technical terms, define them briefly.
-3. Include a helpful analogy or real-world example where appropriate.
-4. Keep the explanation between 100–200 words.
-5. Write in paragraph form (no bullet points or headers).
-6. Be encouraging and positive in tone.
+Provide a clear and concise explanation using simple language. Include an analogy or example if helpful. Keep it between 100-200 words. Be encouraging and positive.
 
 Explanation:`;
 
